@@ -12,11 +12,11 @@
  * http://sailsjs.org/#documentation
  */
 
-module.exports.adapters = {
+module.exports.connections = {
 
   // If you leave the adapter config unspecified 
   // in a model definition, 'default' will be used.
-  'default': 'disk',
+  //'default': 'disk',
 
   // Persistent adapter for DEVELOPMENT ONLY
   // (data is preserved when the server shuts down)
@@ -35,5 +35,30 @@ module.exports.adapters = {
     // so you don't inadvertently push it up if you're using version control
     password: 'YOUR_MYSQL_PASSWORD', 
     database: 'YOUR_MYSQL_DB'
+  },
+
+  mysql: {
+    // module:'sails-mysql',
+    // host:'127.0.0.1',
+    // post:3306,
+    // database:'myapp_test'
+
+
+
+    module: 'sails-mysql',
+    host:'127.0.0.1',
+    port:3306,
+    database:'ballchendb',
+    user:'root'
+
+  },
+
+  mongodb: {
+    module: 'sails-mongo',
+    host: 'oceanic.mongohq.com',
+    port: 10076,
+    database: 'ballchenmongodb',
+    user:'ballchen',
+    password:'ballchen'
   }
 };

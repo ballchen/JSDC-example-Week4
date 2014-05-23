@@ -7,7 +7,7 @@
  */
 
 module.exports = {
-
+  adapter:"mongodb",
   attributes: {
   	title: {
       type: 'string',
@@ -16,6 +16,9 @@ module.exports = {
     content: {
       type: 'string',
       required: true
+    },
+    owner: {
+      model: 'User'
     }
   	/* e.g.
   	nickname: 'string'

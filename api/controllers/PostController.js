@@ -32,7 +32,7 @@ module.exports = {
     Post.create({
       title: title,
       content: content
-    }).done(function (err, post) {
+    }).exec(function (err, post) {
       if (err) {
         return res.erro();
       }
@@ -60,7 +60,11 @@ module.exports = {
 
      Post.findOne({
        id: id
-     }).done(function (err, post) {
+     })
+     
+     
+     
+     .done(function (err, post) {
        if (err) {
          req.flash("info", "info: you point to wrong number");
          return res.redirect("/");
@@ -89,7 +93,7 @@ module.exports = {
         title: title,
         content: content
       })
-      .done(function (err, post) {
+      .exec(function (err, post) {
         if (err) {
           req.flash("info", "info: you point to wrong number");
           return res.redirect("/");
@@ -118,7 +122,7 @@ module.exports = {
     Post
     .find({})
     .sort('updatedAt DESC')
-    .done(function (err, posts) {
+    .exec(function (err, posts) {
       return res.view("home/index", {
         title: "home page - title",
         posts: posts
@@ -142,7 +146,7 @@ module.exports = {
        id: id
      })
      .sort('updatedAt desc')
-     .done(function (err, post) {
+     .exec(function (err, post) {
        res.view("home/page", {
          title: post.title + " - blog post",
          post: post
